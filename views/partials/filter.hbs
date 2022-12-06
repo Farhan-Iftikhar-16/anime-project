@@ -1,0 +1,36 @@
+<div class="col-lg-3 ms-md-auto hidden_filter">
+  <div class="content_block block_color">
+    <h5 class="text-start text-uppercase mb-2 ms-3">Filter</h5>
+    <hr style="color: var(--color_3);  opacity:0.8">
+    <form method="GET" action="/main/filter/resultsFound">
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">genre</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_genre">
+          <option value="" selected>select genre</option>
+          <option value="Seinen">Seinen</option>
+          <option value="Shounen">Shounen</option>
+          <option value="Adventures">Adventures</option>
+          <option value="Drama">Drama</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Anime Type</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_type">
+          <option value="" selected>Choose type</option>
+          <option value="Anime">Anime</option>
+          <option value="Manga">Manga</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">years</label>
+        <div class="input-group">
+          <input type="text" class="form-control form-control-sm filter_form_input"
+            placeholder="От" name="date_start">
+          <input type="text" class="form-control form-control-sm" placeholder="До" name="date_end">
+        </div>
+      </div>
+
+      <button type="submit" class="btn mt-2 search_filter_btn">Search</button>
+    </form>
+  </div>
+</div>

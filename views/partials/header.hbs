@@ -1,0 +1,48 @@
+<header class="mb-5">
+
+  {{#if userEntered}}
+  <div class='registLinks container me-5'>
+      <a class="nav-link me-1" aria-current="page" href="/users/info/{{userEntered}}">Account </a>
+      <a class="nav-link me-1" aria-current="page" href="/users/logout">Exit</a>
+  </div>
+  {{else}}
+  <div class='registLinks container me-5'>
+      <a class="nav-link me-1" aria-current="page" href="/users/login">Login</a>
+      <a class="nav-link me-1" aria-current="page" href="/users/create">Signup</a>
+  </div>
+  {{/if}}
+
+  <nav class="navbar navbar-dark navbar-expand-xl navOptions mt-2 mb-1 p-3">
+    <div class="container-fluid">
+      <a class="navbar-brand a_title_navbar displayTitleNav" href="/main/">AnimeArea</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarID"
+        aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarID">
+        <div class="navbar-nav">
+          <a class="nav-link active me-1" aria-current="page" href="/main">Home</a>
+          <a class="nav-link me-1" aria-current="page" href="/main/catalog">cataslog</a>
+          <a class="nav-link me-1" aria-current="page" href="/main/topAnime">Top 100</a>
+          <a class="nav-link me-1" aria-current="page" href="/main/randomAnime">Random anime</a>
+          <a class="nav-link me-1" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+            aria-controls="collapseExample">Search</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body search_nav_div">
+      <form class="d-flex dd" method="get" action="/main/resultsFound">
+        <input class="form-control me-2 search_nav" type="search" placeholder="Search by name" aria-label="Search" name="searchAnime">
+        <button class="btn btn-outline-success search_nav search_nav_btn" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <a href="/main">
+    <div class="site_emblem container-fluid displayIcon"></div>
+  </a>
+
+</header>

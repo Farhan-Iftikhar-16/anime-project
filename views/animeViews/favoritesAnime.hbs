@@ -1,0 +1,91 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9 mb-5">
+        <div class="content_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3 favor_h5">Scheduled</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+          <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-2 g-3 favour_cards">
+            {{#if anime}}
+              {{#each anime}}
+              <div class="col">
+                <div class="card">
+                  <a href="/anime/description/{{this.anime_id}}"><img src="{{this.anime_poster}}" class="card-img-top card_img" alt="anime poster"></a>
+                  <div class="card-body card_body">
+                    <a href="/anime/description/{{this.anime_id}}"><h6 class="card-title text-center cardfont title_length">{{this.title}}</h6></a>
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            {{else}}
+              <h5>favorites are empty:(</h5>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+      {{> filter}}
+
+      <div class="col-lg-9">
+        <div class="content_block">
+          <h5 class="text-start text-uppercase mb-2 ms-3 favor_h5">Viewed</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+          <div class="row row-cols-1 row-cols-md-4 row-cols-sm-3 row-cols-2 g-3 favour_cards">
+            {{#if anime}}
+              {{#each anime}}
+                {{#if this.viewed}}
+                  <div class="col">
+                    <div class="card">
+                      <a href="/anime/description/{{this.anime_id}}"><img src="{{this.anime_poster}}" class="card-img-top card_img" alt="anime poster"></a>
+                      <div class="card-body card_body">
+                        <a href="/anime/description/{{this.anime_id}}"><h6 class="card-title text-center cardfont title_length">{{this.title}}</h6></a>
+                      </div>
+                    </div>
+                  </div>
+                {{/if}}
+              {{/each}}
+            {{else}}
+              <h5>Viewed is empty(</h5>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<button class="btn pop_up_filter_btn hidden_pop_up" type="button" data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <i class="bi bi-chevron-compact-left">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="var(--color_3)"
+      class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z" />
+    </svg>
+  </i>
+</button>
+
+<div class="offcanvas offcanvas-end pop_up_filter hidden_pop_up" tabindex="-1" id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form method="GET" action="/main/filter/resultsFound">
+      <div class="mb-2">
+        <label for="exampleInput" class="form-label">Genre</label>
+        <select class="form-select form-select-sm filter_inf_select" name="anime_genre">
+          <option value="" selected>Select Genre</option>
+          <option value="Seinen">Seinen</option>
+          <option value="Shounen">Shounen</option>
+          <option value="Adventures">Adventures</option>
+          <option value="Drama">Drama</option?
+        </select>
+      </div>
+      <button type="submit" class="btn mt-2 search_filter_btn">Search</button>
+    </form>
+  </div>
+</div>

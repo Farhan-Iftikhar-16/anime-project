@@ -1,0 +1,118 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      {{#if success}}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{success}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+
+      {{#if fail}}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{fail}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <form method="POST">
+      <div class="row mb-5">
+        <div class="col-12">
+          <h5 class="text-start text-uppercase mb-2 ms-3 crudTitle">Update anime</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-5">
+          <label class="form-label">Name</label>
+          <input class="form-control" value="{{anime.0.title}}" name="title" maxlength="100" required>
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Rating</label>
+          <input class="form-control" value="{{anime.0.rating}}" name="rating">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Type of</label>
+          
+          <select class="form-select" name="anime_type">
+            <option value="{{anime.0.anime_type}}" >{{anime.0.anime_type}}</option>
+            <option value="Anime">Anime</option>
+            <option value="Manga">Manga</option>
+          </select>
+          </div>
+        <div class="col-md-1">
+          <label class="form-label">Asc. org.</label>
+          <input class="form-control" value="{{anime.0.age_permission}}" name="age_permission" maxlength="10" required>
+          </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-3">
+          <label class="form-label">Data the title was released</label>
+          <input class="form-control" name="date_start" value="{{anime.0.date_start}}" type="date" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Date when it last aired</label>
+          <input class="form-control" name="date_end" value="{{anime.0.date_end}}" type="date">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">genre 1</label>
+          <select class="form-select" name="genre_id_1_old" hidden>
+            <option  value="{{genre.0.genre_id}}">{{genre.0.anime_genre}}</option>
+          </select>
+          <select class="form-select" name="genre_id_1">
+            <option value="{{genre.0.genre_id}}" >{{genre.0.anime_genre}}</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">genre 2</label>
+           <select class="form-select" name="genre_id_2_old" hidden>
+            <option  value="{{genre.1.genre_id}}">{{genre.1.anime_genre}}</option>
+          </select>
+          <select class="form-select" name="genre_id_2">
+            <option value="{{genre.1.genre_id}}" >{{genre.1.anime_genre}}</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">genre 3</label>
+          <select class="form-select" name="genre_id_3_old" hidden>
+            <option  value="{{genre.2.genre_id}}">{{genre.2.anime_genre}}</option>
+          </select>
+          <select class="form-select" name="genre_id_3">
+            <option value="{{genre.2.genre_id}}" >{{genre.2.anime_genre}}</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Anime Poster (link)</label>
+          <input class="form-control form-control-sm mb-1" value="{{anime.0.anime_poster}}" name="anime_poster" maxlength="100" disabled>
+        </div>
+      </div>
+        <div class="col-md-1">
+          <label class="form-label">views</label>
+          <input class="form-control" value="{{anime.0.views}}" name="views">
+        </div>
+        <div class="col-md-7">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" value="{{anime.0.episodes}}" style="height: 150px" name="anime_description" maxlength="1000">{{anime.0.anime_description}}</textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+          <button class="btn search_filter_btn" type="submit">refresh</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      {{#if success}}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{success}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+
+      {{#if fail}}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{fail}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      <div class="row mb-5">
+        <div class="col-12">
+          <h5 class="text-start text-uppercase mb-2 ms-3 crudTitle">Create anime title</h5>
+          <hr style="color: var(--color_3);  opacity:0.8">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-5">
+          <label class="form-label">Name</label>
+          <input class="form-control" name="title" maxlength="100" required>
+        </div>
+        <div class="col-md-1">
+          <label class="form-label">Rating</label>
+          <input class="form-control" name="raiting">
+        </div>
+      </div>
+      <div class="row mb-5 ">
+        <div class="col-md-4">
+          <label class="form-label">Type of</label>
+          <select class="form-select" name="anime_type" required>
+            <option selected disabled>Choose type</option>
+            <option value="Anime">Anime</option>
+            <option value="Manga">Manga</option>
+          </select>
+          </div>
+        <div class="col-md-1">
+          <label class="form-label">Asc. limited</label>
+          <input class="form-control" name="age_permission" maxlength="10" required>
+          </div>
+      <div class="row mb-5 ">
+        <div class="col-md-3">
+          <label class="form-label">Date released</label>
+          <input class="form-control" name="date_start" type="date" required>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Date ended</label>
+          <input class="form-control" name="date_end" type="date">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Genre 1</label>
+          <select class="form-select" name="genre_id_1">
+            <option selected disabled>Select Genre</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+
+          <label class="form-label mt-2">Genre 2</label>
+          <select class="form-select" name="genre_id_2">
+            <option selected disabled>Select Genre</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+          
+          <label class="form-label mt-2">Genre 3</label>
+          <select class="form-select" name="genre_id_3">
+            <option selected disabled>Select Genre</option>
+            {{#each allGenre}}<option value="{{this.genre_id}}">{{this.anime_genre}}</option>{{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3">
+          <label class="form-label">Anime poster (link)</label>
+          <input class="form-control" name="AnimePoster" type="file"  maxlength="100">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Images (link)</label>
+          <input class="form-control" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+          <input class="form-control mt-1" name="animeIMG" type="file" maxlength="100">
+        </div>
+      <div class="row mb-5 ">
+        <div class="col-md-1">
+          <label class="form-label">Views</label>
+          <input class="form-control" name="views">
+        </div>
+        <div class="col-md-7">
+          <label class="form-label">Anime Description</label>
+          <textarea class="form-control" style="height: 150px" name="anime_description" maxlength="1500"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+          <button class="btn search_filter_btn" type="submit">Create</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
